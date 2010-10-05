@@ -16,11 +16,11 @@ while true; do
     ping -c 1 $targetpingdevice > /dev/null
     if [ $? -eq 1 ]; then
         if [ $counter -gt 5 ]; then
-            logger -t conncheck "Waiting for ${waittime} seconds."
+            logger -t connwatchd "Waiting for ${waittime} seconds."
             sleep $waittime
         fi
         let counter=counter+1
-        logger -t conncheck "Internet connection lost! Reconnection attempt ${counter}..."
+        logger -t connwatchd "Internet connection lost! Reconnection attempt ${counter}..."
         # login again
         /bin/uni-mainz-login.sh login > /dev/null
         continue

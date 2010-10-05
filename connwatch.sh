@@ -4,13 +4,13 @@
 START=48
 
 start() {
-    logger -t connwatch "Starting conncheck script..."
-    /bin/conncheck.sh &
+    logger -t connwatch "Starting connwatchd..."
+    /bin/connwatchd.sh &
 }
 
 stop() {
-    logger -t connwatch "Stopping conncheck script..."
-    killall conncheck.sh
+    logger -t connwatch "Stopping connwatchd..."
+    killall connwatchd.sh
 }
 
 boot() {
@@ -21,6 +21,6 @@ boot() {
     . /etc/hotplug.d/iface/40-rdate
     sync_rdate
     
-    logger -t connwatch "Starting conncheck script..."
-    /bin/conncheck.sh &
+    logger -t connwatch "Starting connwatchd..."
+    /bin/connwatchd.sh &
 }
