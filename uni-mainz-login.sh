@@ -11,16 +11,16 @@ PASSWORD=       # Insert corresponding Password here
 
 login() {
     logger -t uni-mainz-login "Logging in..."
-    curl -s --data-urlencode user=$USER --data-urlencode pass=$PASSWORD -d "submit=+++Login+++&forward=&s=" -e https://login.uni-mainz.de/login.html -k https://login.uni-mainz.de/cgi-bin/login-cgi > /dev/null
+    curl -s --data-urlencode user=$USER --data-urlencode pass=$PASSWORD -d "submit=+++Login+++&forward=&s=" -e https://login.wohnheim.uni-mainz.de/login.html -k https://login.uni-mainz.de/cgi-bin/login-cgi > /dev/null
     #Uncomment the following line to get verbose output
-    #curl -v --data-urlencode user=$USER --data-urlencode pass=$PASSWORD -d "submit=+++Login+++&forward=&s=" -e https://login.uni-mainz.de/login.html -k https://login.uni-mainz.de/cgi-bin/login-cgi
+    #curl -v --data-urlencode user=$USER --data-urlencode pass=$PASSWORD -d "submit=+++Login+++&forward=&s=" -e https://login.wohnheim.uni-mainz.de/login.html -k https://login.uni-mainz.de/cgi-bin/login-cgi
 }
 
 logout() {
     logger -t uni-mainz-login "Logging out..."
-    curl -s --data-urlencode 'command=logout' -k https://login.uni-mainz.de/cgi-bin/logout.cgi > /dev/null
+    curl -s --data-urlencode 'command=logout' -k https://login.wohnheim.uni-mainz.de/cgi-bin/logout.cgi > /dev/null
     #Uncomment the following line to get verbose output
-    #curl -v --data-urlencode 'command=logout' -k https://login.uni-mainz.de/cgi-bin/logout.cgi
+    #curl -v --data-urlencode 'command=logout' -k https://login.wohnheim.uni-mainz.de/cgi-bin/logout.cgi
 }
 
 case $1 in
